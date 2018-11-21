@@ -1,6 +1,7 @@
 version: '3'
 services:
   registry:
+    container_name: registry
     image: registry:2
     restart: always
     volumes:
@@ -11,3 +12,18 @@ services:
       - REGISTRY_HTTP_TLS_KEY= /certs/domain.key
     ports:
       - "5000:5000"
+  ci_server:
+    build: ci_server
+    volumes:
+      - //var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - "8080:8080"
+  ngrok:
+    container_name: ngrok
+    image: wernight/ngrok
+    ports:
+      - "0.0.0.0:4040:4040"
+    links:
+      - ci_server
+    environment:
+      NGROK_PORT: ci_server:8080

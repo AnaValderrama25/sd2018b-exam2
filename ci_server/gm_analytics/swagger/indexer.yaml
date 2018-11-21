@@ -5,11 +5,11 @@ info:
   version: "0.1.0"
 
 paths:
-  /ciserver/pullrequest/updatepackages:
+  /ciserver/develop/merged:
     post:
       x-swagger-router-controller: gm_analytics
-      operationId: handlers.get_pullrequest_packages
-      summary: Update packages needed to install.
+      operationId: handlers.develop_branch_merged
+      summary: The develop branch has been merged.
       responses:
         200:
           description: Successful response.
@@ -18,4 +18,4 @@ paths:
             properties:
               command_return:
                 type: string
-                description: User pullrequest information.
+                description: Merge action information.
