@@ -15,8 +15,10 @@ services:
     build: ci_server
     volumes:
       - //var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - 'CI_SERVER_HTTP_ADDR=0.0.0.0:8080'
     ports:
-      -"8080:8080"
+      - "8080:8080"
   ngrok:
     image: wernight/ngrok
     links:
