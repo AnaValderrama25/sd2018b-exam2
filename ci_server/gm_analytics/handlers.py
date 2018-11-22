@@ -5,12 +5,16 @@ import logging
 import json
 from flask import request, Flask, json
 
+def hello():
+    out = {'command_return': 'Hello'}
+    return out
+
 def develop_branch_merged():
     result_swagger   = ""
     post_json_data   = request.get_data()
     string_json      = str(post_json_data, 'utf-8')
     json_pullrequest = json.loads(string_json)
-    branch_merged = jsonFile["pull_request"]["merged"]
+    branch_merged = json_pullrequest["pull_request"]["merged"]
     if branch_merged:
         pullrequest_sha  = json_pullrequest["pull_request"]["head"]["sha"]
         json_image_url     = "https://raw.githubusercontent.com/anavalderrama25/sd2018b-exam2/" + pullrequest_sha + "image.json"
@@ -28,7 +32,7 @@ def develop_branch_merged():
                 file.write(str(file_response.content, 'utf-8'))
                 file.close()
 
-                image_tag  = "localhost:5000/" + service_name + ":" + image_version
+                image_tag  = "registry:5000/" + service_name + ":" + image_version
 
                 client = docker.DockerClient(base_url='unix://var/run/docker.sock')
                 client.images.build(path="./", tag=image_tag)
