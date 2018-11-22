@@ -1,0 +1,7 @@
+[
+        {
+                "service_name": "redis",
+                "version": "1.0",
+                "type": "Docker"
+        }
+]
