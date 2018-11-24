@@ -36,12 +36,10 @@ To achieve the goals presented before is necessary to deploy the infrastructure 
   ![][1]  
   **Figure 1.** Deploy diagram.  
 
-###Infrastructure Content  
+### Infrastructure Content  
 
 The current branch contains the elements to deploy the infrastructure. First, it has the ***docker-compose.yml*** file that contains the provisioning settings needed for each container. Second, it has **CI Server** with all the components required to deploy it.  
-  
-  
-**docker-compose.yml**  
+**docker-compose.yml:**  
 This file contains three services, each one will be described below:  
   
 * **registry**: like I explain before this service is deployed based on a DockerHub image, this service refers to the private local Registry for Docker images that will be created. Generally, it is attached to 5000 port. It needs signed certificates created using OpenSSL, this certificates allow the server to be secure. So, in the construction of the **Registry** on the ***docker-compose.yml** is necessary to put the folder where they are located, and some environment variables related to it.  
@@ -184,10 +182,21 @@ Then check the response of the server in the **Webhook** and in the **Ngrok** da
 ![][8]  
 **Figure 8.** **Ngrok** dashboard after pull request.  
 
-## #Issues
+### Issues
 The deployment of this infrastructure is not really difficult but it is important to decide which framework is good to use to deploy the endpoints, this depending on the application that is going to implemented and how mucho endpoints will be deployed. 
 Other issues appear in the management of GitHub because if you do not push branch before work on another you can lose part of you job. It happens to me with one file. And then re-writing it I make a mistake that prevent the server to work well.   
 
+### References  
+* https://hub.docker.com/_/registry/
+* https://hub.docker.com/_/docker/
+* https://docker-py.readthedocs.io/en/stable/index.html
+* https://developer.github.com/v3/guides/building-a-ci-server/
+* http://flask.pocoo.org/
+* https://connexion.readthedocs.io/en/latest/
+* http://flask.pocoo.org/  
+* https://connexion.readthedocs.io/en/latest/  
+* https://www.learnitguide.net/2018/07/create-your-own-private-docker-registry.html  
+* https://www.youtube.com/watch?v=SEpR35HZ_hQ  
 
 
 [1]: images/deploy_diagram.png  
