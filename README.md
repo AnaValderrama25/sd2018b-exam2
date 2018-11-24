@@ -7,12 +7,12 @@
 **Student ID:** A00065868  
 **Email:** ana_fernanda_25 at hotmail.com 
   
-###Goals  
+### Goals  
 * Automate artficacts generation for continous integration.  
 * Use libraries of programming languages to perform specific tasks.  
 * Diagnose and execute autonomously the needed actions to achieve a stable infrastructure.  
   
-###Used Technologies  
+### Used Technologies  
 * Vagrant  
 * Docker  
 * CentOS7 Box  
@@ -21,7 +21,7 @@
 * Python3 Libraries: Flask, Connexion, Docker  
 * Ngrok  
   
-###Description    
+### Description    
   
 To achieve the goals presented before is necessary to deploy the infrastructure described below: 
 - **CI Server**  
@@ -149,7 +149,7 @@ ci_server:
 ```  
   
   
-###Deployment 
+### Deployment 
 
 To build the services based on ***docker-compose.yml*** file run this command:  
 ```  
@@ -174,7 +174,7 @@ Now, it is possible to configure the **Webhook**, adding to the public domain th
 ![][5]  
 **Figure 5.** Configuration of the **Webhook**.   
 
-###Demonstration  
+### Demonstration  
 To demostrate the application working approperly, in another branch called *avalderrama/develop* a Dockerfile and image.json files are added. The first contains the commands needded to buil the image that is mentioned in the JSON file. After this files are created properly, the next step is to make the Pull Request to *develop* branch.  
 ![][6]  
 **Figure 6.** Pull Request to activate the endpoint.  
@@ -184,7 +184,7 @@ Then check the response of the server in the **Webhook** and in the **Ngrok** da
 ![][8]  
 **Figure 8.** **Ngrok** dashboard after pull request.  
 
-###Issues
+## #Issues
 The deployment of this infrastructure is not really difficult but it is important to decide which framework is good to use to deploy the endpoints, this depending on the application that is going to implemented and how mucho endpoints will be deployed. 
 Other issues appear in the management of GitHub because if you do not push branch before work on another you can lose part of you job. It happens to me with one file. And then re-writing it I make a mistake that prevent the server to work well.   
 
