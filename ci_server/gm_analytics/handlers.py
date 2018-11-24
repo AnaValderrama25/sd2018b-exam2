@@ -17,7 +17,7 @@ def develop_branch_merged():
     branch_merged = json_pullrequest["pull_request"]["merged"]
     if branch_merged:
         pullrequest_sha  = json_pullrequest["pull_request"]["head"]["sha"]
-        json_image_url     = "https://raw.githubusercontent.com/anavalderrama25/sd2018b-exam2/" + pullrequest_sha + "image.json"
+        json_image_url     = "https://raw.githubusercontent.com/anavalderrama25/sd2018b-exam2/" + pullrequest_sha + "/" +"image.json"
         response_image_url = requests.get(json_image_url)
         image_data    =  json.loads(response_image_url.content)
         for service in image_data:
